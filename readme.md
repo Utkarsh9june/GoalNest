@@ -22,7 +22,7 @@ GoalNest/
 git clone https://github.com/<your-username>/GoalNest.git
 cd GoalNest
 
-2. Install dependencies
+### 2. Install dependencies
 
 Frontend
 
@@ -33,7 +33,7 @@ Backend
 cd ../server
 npm install
 
-3. Run the project
+### 3. Run the project
 
 Start backend
 
