@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 const Navbar = () => {
   const navigate = useNavigate();
   return (
-    <nav className="flex items-center justify-between px-4 py-2">
+    <nav className="flex items-center justify-between px-4 py-2 z-10">
       <img
         src={logo}
         alt="GoalNest"
@@ -14,13 +14,18 @@ const Navbar = () => {
         className="cursor-pointer"
         onClick={() => navigate("/")}
       />
-      <h1 className="text-3xl font-bold">
+      <h1 className="text-3xl font-bold pl-52">
         <span className="text-blue-900">Goal</span>Nest
       </h1>
+      <div className="flex items-center gap-4 ">
+      <input className="border border-gray-300 rounded-md px-2 py-1 w-64 "
+        type="text" 
+        placeholder="Search Here"/>
       <FaRegUserCircle 
       className="text-4xl cursor-pointer text-gray-600" 
       onClick={() => navigate("/profile")}
       />
+      </div>
     </nav>
   );
 };
