@@ -7,7 +7,7 @@ import { NavLink } from "react-router-dom";
 
 const Sidebar = () => {
     return (
-        <div className="h-full min-h-screen p-2 flex flex-col gap-2 font-semibold text-lg z-0">
+        <div className=" p-2 flex flex-col gap-2 font-semibold text-lg z-0">
             <div className="flex items-center gap-2 cursor-pointer">
                 <NavLink to="/" className={({ isActive }) =>
                     `w-56 flex items-center gap-5 p-2 px-4 rounded-md transition ${isActive ? "bg-gray-200" : "hover:bg-gray-200"

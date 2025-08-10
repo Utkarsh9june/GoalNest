@@ -6,15 +6,14 @@ import { useNavigate } from "react-router-dom";
 const Navbar = () => {
   const navigate = useNavigate();
   return (
-    <nav className="flex items-center justify-between px-4 py-2 z-10">
+    <nav className="flex items-center text-center justify-between px-4 py-2 z-10">
       <img
         src={logo}
         alt="GoalNest"
-        style={{ width: "40px", height: "40px", borderRadius: "50px" }}
-        className="cursor-pointer"
+        className="cursor-pointer h-9 m-1"
         onClick={() => navigate("/")}
       />
-      <h1 className="text-3xl font-bold pl-52">
+      <h1 className="text-4xl font-bold pl-52">
         <span className="text-blue-900">Goal</span>Nest
       </h1>
       <div className="flex items-center gap-4 ">

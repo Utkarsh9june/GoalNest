@@ -1,20 +1,20 @@
 import React from 'react';
 import Navbar from './components/Navbar';
 import Sidebar from './components/Sidebar';
-import Profile from './components/Profile';
+import Profile from './pages/Profile';
 import { Route, Routes } from 'react-router-dom';
-import Planner from './components/Planner';
-import Goals from './components/Goals';
-import DailyView from './components/DailyView';
-import Dashboard from './components/Dashboard';
+import Planner from './pages/Planner';
+import Goals from './pages/Goals';
+import DailyView from './pages/DailyView';
+import Dashboard from './pages/Dashboard';
 
 const App = () => {
   return (
     <div className='h-screen flex flex-col font-sans'>
-      <header className='h-16 w-full border-b '><Navbar /></header>
+      <header className='h-16 w-full border-b'><Navbar /></header>
       <div className='flex flex-1'> 
-        <aside className='w-56 border-r'><Sidebar /></aside>
-        <main className='flex-1 h-full overflow-auto p-4'>
+        <aside className='w-56 h-full border-r'><Sidebar /></aside>
+        <main className='flex-1 overflow-auto p-4'>
           <Routes>
             <Route path="/" element={<Dashboard />} />
             <Route path="/profile" element={<Profile />} />
@@ -24,6 +24,7 @@ const App = () => {
           </Routes>
         </main>
       </div>
+      <footer className='h-8 w-full border-t flex items-center justify-center'>Copyright 2025</footer>
     </div>
   )
 }
