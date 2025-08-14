@@ -1,20 +1,62 @@
-import React from 'react'
-import ProgressCard from '../components/ProgressCard';
+import React, { useState } from "react";
+import ProgressCard from "../components/ProgressCard";
+import { FaRegCalendarAlt } from "react-icons/fa";
+import { LuCalendarCheck } from "react-icons/lu";
+import { FaListCheck } from "react-icons/fa6";
+import { IoBookOutline } from "react-icons/io5";
 import { FaBullseye } from "react-icons/fa";
 import { GrInProgress } from "react-icons/gr";
 import { SiTicktick } from "react-icons/si";
 import { LuTimer } from "react-icons/lu";
 import { AiOutlineExclamationCircle } from "react-icons/ai";
+import {
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  ResponsiveContainer,
+} from "recharts";
 
 const Dashboard = () => {
+  const [timeline, setTimeline] = useState("daily");
+  const progressData = {
+    daily: [
+      { name: "Mon", value: Number("3") },
+      { name: "Tue", value: Number("4") },
+      { name: "Wed", value: Number("2") },
+      { name: "Thu", value: Number("5") },
+      { name: "Fri", value: Number("6") },
+    ],
+    sprint: [
+      { name: "Sprint 1", value: 12 },
+      { name: "Sprint 2", value: 15 },
+      { name: "Sprint 3", value: 10 },
+      { name: "Sprint 4", value: 14 },
+    ],
+    monthly: [
+      { name: "Jan", value: 50 },
+      { name: "Feb", value: 60 },
+      { name: "Mar", value: 40 },
+      { name: "Apr", value: 70 },
+    ],
+    quarterly: [
+      { name: "Q1", value: 150 },
+      { name: "Q2", value: 180 },
+      { name: "Q3", value: 160 },
+      { name: "Q4", value: 200 },
+    ],
+  };
+
   return (
     <div>
-       {/* Header Section */}
-      <h1 className='text-3xl font-bold'>Welcome Back, Utkarsh!</h1>
-      <p className='mt-4 text-lg'>Here's your personalized overview.</p>
-      
-       {/* Progress Cards Section */}
-      <div className='grid grid-cols-2 mt-3 mr-4 justify-between w-full gap-4'>
+      {/* Header Section */}
+      <h1 className="text-3xl font-bold">Welcome Back, Utkarsh!</h1>
+      <p className="mt-4 text-lg">Here's your personalized overview.</p>
+
+      {/* Progress Cards Section */}
+      <div className="grid grid-cols-2 mt-3 mr-4 justify-between w-full gap-4">
         <ProgressCard
           icon={FaBullseye}
           title="Quarterly Goals"
@@ -24,10 +66,10 @@ const Dashboard = () => {
           statusicon={SiTicktick}
           statusText="Completed"
           statusColor="#22c55e"
-          onViewDetails={() => alert('View Details Clicked')}
+          onViewDetails={() => alert("View Details Clicked")}
         />
         <ProgressCard
-          icon={FaBullseye}
+          icon={IoBookOutline}
           title="Monthly Goals"
           description="Track your progress towards your monthly goals."
           current={3}
@@ -35,10 +77,10 @@ const Dashboard = () => {
           statusicon={GrInProgress}
           statusText="In Progress"
           statusColor="#d4c706"
-          onViewDetails={() => alert('View Details Clicked')}
+          onViewDetails={() => alert("View Details Clicked")}
         />
         <ProgressCard
-          icon={FaBullseye}
+          icon={FaRegCalendarAlt}
           title="Sprint Goals"
           description="Track your progress towards your quarterly goals."
           current={3}
@@ -46,10 +88,10 @@ const Dashboard = () => {
           statusicon={LuTimer}
           statusText="Overdue"
           statusColor="#ff0000"
-          onViewDetails={() => alert('View Details Clicked')}
+          onViewDetails={() => alert("View Details Clicked")}
         />
         <ProgressCard
-          icon={FaBullseye}
+          icon={FaListCheck}
           title="Daily Goals"
           description="Track your progress towards your quarterly goals."
           current={3}
@@ -57,7 +99,7 @@ const Dashboard = () => {
           statusicon={SiTicktick}
           statusText="Completed"
           statusColor="#22c55e"
-          onViewDetails={() => alert('View Details Clicked')}
+          onViewDetails={() => alert("View Details Clicked")}
         />
       </div>
 
@@ -99,7 +141,7 @@ const Dashboard = () => {
             <p className="text-sm text-gray-600">Completion Rate</p>
             <p className="text-xs text-gray-500 mt-1">Of All Planned Tasks</p>
           </div>
-          </div>
+        </div>
       </div>
 
       {/* Upcoming and Overdue Tasks Section */}
@@ -117,57 +159,126 @@ const Dashboard = () => {
           </thead>
           <tbody>
             <tr className="border-b">
-              <td className="py-2">Finalize Q3 Report</td>
+              <td className="py-2">
+                <div className="flex items-center gap-1">
+                  <AiOutlineExclamationCircle /> Finalize Q3 Report{" "}
+                </div>
+              </td>
               <td className="py-2 text-red-500 font-semibold">Sep 30</td>
               <td className="py-2">
-                <span className="px-2 py-1 rounded-full text-xs bg-red-100 text-red-600">High</span>
+                <span className="px-2 py-1 rounded-full text-xs bg-red-100 text-red-600">
+                  High
+                </span>
               </td>
               <td className="py-2">Work</td>
               <td className="py-2">
-                <span className="px-2 py-1 rounded-full text-xs bg-red-200 text-red-700">Overdue</span>
+                <span className="px-2 py-1 rounded-full text-xs bg-red-200 text-red-700">
+                  Overdue
+                </span>
               </td>
             </tr>
 
             <tr className="border-b">
-              <td className="py-2">Plan October Content</td>
+              <td className="py-2">
+                <div className="flex items-center gap-1">
+                  <LuCalendarCheck /> Plan October Content
+                </div>
+              </td>
               <td className="py-2">Oct 5</td>
               <td className="py-2">
-                <span className="px-2 py-1 rounded-full text-xs bg-yellow-100 text-yellow-600">Medium</span>
+                <span className="px-2 py-1 rounded-full text-xs bg-yellow-100 text-yellow-600">
+                  Medium
+                </span>
               </td>
               <td className="py-2">Work</td>
               <td className="py-2">
-                <span className="px-2 py-1 rounded-full text-xs bg-blue-100 text-blue-600">In Progress</span>
+                <span className="px-2 py-1 rounded-full text-xs bg-blue-100 text-blue-600">
+                  In Progress
+                </span>
               </td>
             </tr>
 
             <tr className="border-b">
-              <td className="py-2">Review Monthly Budget</td>
+              <td className="py-2">
+                <div className="flex items-center gap-1">
+                  <LuCalendarCheck /> Review Monthly Budget
+                </div>
+              </td>
               <td className="py-2">Oct 10</td>
               <td className="py-2">
-                <span className="px-2 py-1 rounded-full text-xs bg-green-100 text-green-600">Low</span>
+                <span className="px-2 py-1 rounded-full text-xs bg-green-100 text-green-600">
+                  Low
+                </span>
               </td>
               <td className="py-2">Finance</td>
               <td className="py-2">
-                <span className="px-2 py-1 rounded-full text-xs bg-gray-100 text-gray-600">Pending</span>
+                <span className="px-2 py-1 rounded-full text-xs bg-gray-100 text-gray-600">
+                  Pending
+                </span>
               </td>
             </tr>
 
             <tr>
-              <td className="py-2">Schedule Team Standup</td>
+              <td className="py-2">
+                <div className="flex items-center gap-1">
+                  <LuCalendarCheck /> Schedule Team Standup
+                </div>
+              </td>
               <td className="py-2">Oct 12</td>
               <td className="py-2">
-                <span className="px-2 py-1 rounded-full text-xs bg-green-100 text-green-600">Low</span>
+                <span className="px-2 py-1 rounded-full text-xs bg-green-100 text-green-600">
+                  Low
+                </span>
               </td>
               <td className="py-2">Work</td>
               <td className="py-2">
-                <span className="px-2 py-1 rounded-full text-xs bg-yellow-100 text-yellow-600">Upcoming</span>
+                <span className="px-2 py-1 rounded-full text-xs bg-yellow-100 text-yellow-600">
+                  Upcoming
+                </span>
               </td>
             </tr>
           </tbody>
         </table>
       </div>
-    </div>
-  )
-}
 
-export default Dashboard
+      {/* Progress Graph section */}
+      <div className="bg-white p-6 rounded-lg shadow-lg border mt-10 mr-12">
+        <h2 className="text-2xl font-bold mb-4">Past Progress</h2>
+        <div className="flex gap-4 mb-4 flex justify-end">
+          {["daily", "sprint", "monthly", "quarterly"].map((t) => (
+            <button
+              key={t}
+              onClick={() => setTimeline(t)}
+              className={`px-4 py-2 rounded-lg font-medium transition ${
+                timeline === t
+                  ? "bg-blue-500 text-white"
+                  : "bg-gray-100 hover:bg-gray-200"
+              }`}
+            >
+              {t.charAt(0).toUpperCase() + t.slice(1)}
+            </button>
+          ))}
+        </div>
+
+        <ResponsiveContainer width="100%" height={300}>
+          <LineChart data={progressData[timeline]}>
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis dataKey="name" />
+            <YAxis tick={{ fontSize: 12 }} />
+            <Tooltip />
+            <Line
+              type="monotone"
+              dataKey="value"
+              stroke="#8884d8"
+              strokeWidth={2}
+              dot={{ r: 3 }}
+              activeDot={{ r: 5 }}
+            />
+          </LineChart>
+        </ResponsiveContainer>
+      </div>
+    </div>
+  );
+};
+
+export default Dashboard;
