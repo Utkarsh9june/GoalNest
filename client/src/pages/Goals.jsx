@@ -1,5 +1,5 @@
 import React, { use, useState } from 'react';
-import GoalsTable from '../components/GoalsTable';
+import GoalsTable from '../components/GoalsCard';
 
 const Goals = () => {
   const[timeline, setTimeline] = useState("daily");
@@ -21,7 +21,7 @@ const Goals = () => {
       </div>
       <div className='flex flex-col mt-10'>
         <h3 className='text-2xl font-bold mb-4'>Upcoming Goals</h3>
-        
+          
       </div>
     </div>
   )
