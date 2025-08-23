@@ -18,6 +18,11 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from "recharts";
+import Planner from "./Planner";
+import Goals from "./Goals";
+import Study from "../assets/Study.png";
+import SuccessImage from "../assets/SuccessImage.png";
+import InspirationCard from "../components/InspirationCard";
 
 const Dashboard = () => {
   const [timeline, setTimeline] = useState("daily");
@@ -56,7 +61,7 @@ const Dashboard = () => {
       <p className="mt-4 text-lg">Here's your personalized overview.</p>
 
       {/* Progress Cards Section */}
-      <div className="grid grid-cols-2 mt-3 mr-4 justify-between w-full gap-4">
+      <div className="grid grid-cols-2 mt-3 w-full gap-8">
         <ProgressCard
           icon={FaBullseye}
           title="Quarterly Goals"
@@ -104,7 +109,7 @@ const Dashboard = () => {
       </div>
 
       {/* Quick Productivity Stats Section */}
-      <div className="bg-white p-6 rounded-lg shadow-lg mr-12 border mt-10">
+      <div className="bg-white p-6 rounded-lg shadow-lg border mt-10">
         <h3 className="text-2xl font-bold mb-4">Quick Productivity Stats</h3>
         <div className="grid grid-cols-5 gap-4 text-center">
           {/* Tasks Completed */}
@@ -145,7 +150,7 @@ const Dashboard = () => {
       </div>
 
       {/* Upcoming and Overdue Tasks Section */}
-      <div className="bg-white p-6 rounded-lg shadow-lg border mt-10 mr-12">
+      <div className="bg-white p-6 rounded-lg shadow-lg border mt-10">
         <h3 className="text-2xl font-bold mb-4">Upcoming & Overdue Tasks</h3>
         <table className="w-full text-left border-collapse">
           <thead>
@@ -242,7 +247,7 @@ const Dashboard = () => {
       </div>
 
       {/* Progress Graph section */}
-      <div className="bg-white p-6 rounded-lg shadow-lg border mt-10 mr-12">
+      <div className="bg-white p-6 rounded-lg shadow-lg border mt-10">
         <h2 className="text-2xl font-bold mb-4">Past Progress</h2>
         <div className="flex gap-4 mb-4 flex justify-end">
           {["daily", "sprint", "monthly", "quarterly"].map((t) => (
@@ -277,6 +282,18 @@ const Dashboard = () => {
           </LineChart>
         </ResponsiveContainer>
       </div>
+      <InspirationCard
+        title="Plan Your Ascend"
+        quote="Define your aspiration, break them into manageable steps, and track your journey to success. Every great achievement start with a clear plan.."
+        image={Study}
+      />
+      <Planner />
+      <InspirationCard 
+        title="Dream, Plan, Achieve"
+        quote="Your future is created by what you do today, not tomorrow. Set your goals, stay consistent, and success will follow."
+        image={SuccessImage}
+      />
+      <Goals />
     </div>
   );
 };

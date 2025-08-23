@@ -1,6 +1,14 @@
-import React from 'react'
+import React from 'react';
+import { SlOptionsVertical } from "react-icons/sl";
+import { FaRegCalendarAlt } from "react-icons/fa";
 
-const GoalsCard = ({title, category, status, due, progress}) => {
+const GoalsCard = ({
+  title, 
+  category, 
+  status, 
+  due, 
+  progress
+}) => {
     const getStatusColor = () => {
         switch (status) {
             case 'completed':
@@ -16,40 +24,33 @@ const GoalsCard = ({title, category, status, due, progress}) => {
         }
     }
   return (
-    <div className='border rounded-xl shadow-sm p-4 space-y-2'>
-      {/* Category */}
-      <span className="text-xs px-2 py-1 rounded-full bg-gray-100 text-gray-700 font-medium">
-        {category}
-      </span>
+    <div className='border w-[250px] h-[250px] justify-betweeen rounded-xl shadow-sm p-4'>
+      <div className='flex flex-row justify-between items-center mb-4'>
+        {/* Category */}
+        <span className="flex text-sm px-2 py-1 rounded-lg bg-gray-200 text-gray-700 font-medium ">
+          {category}
+        </span>
+        {/* Three Dots */}
+        <button className="flex material-icons text-sm"><SlOptionsVertical /></button>
+      </div>
 
       {/* Title */}
-      <h3 className="text-base font-semibold">{title}</h3>
+      <h3 className="text-base text-lg flex font-semibold mb-4">{title}</h3>
 
       {/* Status */}
-      <div className="flex items-center gap-2 text-sm text-gray-500">
+      <div className="flex items-center gap-2 text-md text-gray-500 mb-3">
         <span className={`w-2 h-2 rounded-full ${getStatusColor()}`}></span>
         {status}
       </div>
 
       {/* Due Date */}
-      <div className="flex items-center gap-2 text-sm text-gray-600">
-        <span className="material-icons text-sm">event</span>
+      <div className="flex items-center gap-2 text-md text-gray-600">
+        <span className="material-icons text-sm"><FaRegCalendarAlt /></span>
         Due: {due}
       </div>
 
-      {/* Progress */}
-      <div>
-        <div className="w-full bg-gray-200 h-2 rounded-full">
-          <div
-            className="bg-blue-500 h-2 rounded-full"
-            style={{ width: `${progress}%` }}
-          ></div>
-        </div>
-        <p className="text-xs text-gray-500 mt-1">{progress}% Completed</p>
-      </div>
-
       {/* Button */}
-      <button className="w-full border rounded-lg py-1.5 text-sm font-medium hover:bg-gray-100">
+      <button className="mt-5 w-full border rounded-lg py-2 text-md font-medium hover:bg-gray-100">
         View Details
       </button>
     </div>

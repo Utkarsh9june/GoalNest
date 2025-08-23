@@ -13,7 +13,7 @@ const ProgressCard = ({
 }) => { 
     const progressPercentage = total > 0 ? (current / total) * 100 : 0;
   return (
-    <div className='max-w-xl border rounded-lg p-4 shadow-md bg-white mt-3'>
+    <div className='w-full border rounded-lg p-4 shadow-md bg-white mt-3'>
       <div className='flex items-center justify-between'>
         <div className='flex items-center space-x-2'>
         {Icon && <Icon className="text-teal-600 w-4 h-4" />}

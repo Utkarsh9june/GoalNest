@@ -1,10 +1,10 @@
 import React, { use, useState } from 'react';
-import GoalsTable from '../components/GoalsCard';
+import GoalsCard from '../components/GoalsCard';
 
 const Goals = () => {
   const[timeline, setTimeline] = useState("daily");
   return (
-    <div className='mr-12 ml-4 p-4 flex flex-col rounded-lg'>
+    <div className='mt-10 border p-4 flex flex-col rounded-lg'>
       <div className='flex flex-row justify-between'>
       <h2 className='text-3xl font-bold flex '>Goals Overview</h2>
       <div className='flex gap-4 font-semibold'>
@@ -19,9 +19,35 @@ const Goals = () => {
         ))}
       </div>
       </div>
-      <div className='flex flex-col mt-10'>
-        <h3 className='text-2xl font-bold mb-4'>Upcoming Goals</h3>
-          
+      <div className='flex flex-col'>
+        <h3 className='text-2xl font-bold mb-5 mt-8'>Ongoing Goals</h3>
+          <GoalsCard
+            title="Launch Ascend v1.0 Beta"
+            category="Personal"
+            status="in-progress"
+            due="2023-10-15"
+          />
+        <h3 className='text-2xl font-bold mb-4 mt-8'>Upcoming Goals</h3>
+          <GoalsCard
+            title="Goal 1"
+            category="Personal"
+            status="Not-started"
+            due="2023-10-15"
+          />
+          <h3 className='text-2xl font-bold mb-4 mt-8'>Completed Goals</h3>
+          <GoalsCard
+            title="Goal 1"
+            category="Personal"
+            status="Completed"
+            due="2023-10-15"
+          />
+          <h3 className='text-2xl font-bold mb-4 mt-8'>Overdue Goals</h3>
+          <GoalsCard
+            title="Goal 1"
+            category="Personal"
+            status="Overdue"
+            due="2023-10-15"
+          />
       </div>
     </div>
   )

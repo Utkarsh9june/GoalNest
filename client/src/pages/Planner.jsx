@@ -4,18 +4,8 @@ import Study from "../assets/Study.png"
 const Planner = () => {
   return (
     <div>
-      <div className='mr-12 ml-4 p-4 bg-gray-100 flex flex-row rounded-lg gap-28'>
-        <div className='flex w-84 border-b flex-col m-4 mt-10'>
-          <h2 className='flex text-3xl font-bold mb-4'>Plan Your Ascend</h2>
-          <p className='flex text-lg'>Define your aspiration, break them into manageable steps, and track your <br/> journey to success. Every great achievement start with a clear plan.</p>
-        </div>
-        <div className='flex w-96 border-b flex-col m-4'>
-          <img src={Study} alt="" className='h-48 object-cover'/>
-        </div>
-      </div>
-
       {/* Goals Planning Section */}
-      <div className='mr-12 mt-10 p-8 border rounded-lg ml-4'>
+      <div className='mt-10 p-8 border rounded-lg'>
         <h2 className='text-2xl font-semibold'>Add a goal</h2>
         <p className='text-md mt-2'>Fill the details to set your new goal</p>
         <form className='text-lg flex flex-col mt-4'>
