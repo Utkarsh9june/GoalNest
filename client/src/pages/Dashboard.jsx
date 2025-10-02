@@ -35,10 +35,10 @@ const Dashboard = () => {
       { name: "Fri", value: Number("6") },
     ],
     sprint: [
-      { name: "Sprint 1", value: 12 },
-      { name: "Sprint 2", value: 15 },
-      { name: "Sprint 3", value: 10 },
-      { name: "Sprint 4", value: 14 },
+      { name: "Week 1", value: 12 },
+      { name: "Week 2", value: 15 },
+      { name: "Week 3", value: 10 },
+      { name: "Week 4", value: 14 },
     ],
     monthly: [
       { name: "Jan", value: 50 },
@@ -86,7 +86,7 @@ const Dashboard = () => {
         />
         <ProgressCard
           icon={FaRegCalendarAlt}
-          title="Sprint Goals"
+          title="Weekly Goals"
           description="Track your progress towards your quarterly goals."
           current={3}
           total={5}
@@ -250,7 +250,7 @@ const Dashboard = () => {
       <div className="bg-white p-6 rounded-lg shadow-lg border mt-10">
         <h2 className="text-2xl font-bold mb-4">Past Progress</h2>
         <div className="flex gap-4 mb-4 flex justify-end">
-          {["daily", "sprint", "monthly", "quarterly"].map((t) => (
+          {["daily", "Weekly", "monthly", "quarterly"].map((t) => (
             <button
               key={t}
               onClick={() => setTimeline(t)}

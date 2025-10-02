@@ -8,7 +8,7 @@ const Goals = () => {
       <div className='flex flex-row justify-between'>
       <h2 className='text-3xl font-bold flex '>Goals Overview</h2>
       <div className='flex gap-4 font-semibold'>
-        {["daily", "sprint", "monthly", "quarterly"].map((t) => (
+        {["daily", "Weekly", "monthly", "quarterly"].map((t) => (
           <button
             key={t}
             className={`px-4 py-2 rounded-lg ${timeline === t ? "bg-blue-500 text-white" : "bg-gray-200 text-gray-800"}`}
@@ -20,28 +20,28 @@ const Goals = () => {
       </div>
       </div>
       <div className='flex flex-col'>
-        <h3 className='text-2xl font-bold mb-5 mt-8'>Ongoing Goals</h3>
+        <h3 className='text-2xl font-bold mb-5 mt-8'>Quarterly Goals</h3>
           <GoalsCard
             title="Launch Ascend v1.0 Beta"
             category="Personal"
             status="in-progress"
             due="2023-10-15"
           />
-        <h3 className='text-2xl font-bold mb-4 mt-8'>Upcoming Goals</h3>
+        <h3 className='text-2xl font-bold mb-4 mt-8'>Monthly Goals</h3>
           <GoalsCard
             title="Goal 1"
             category="Personal"
             status="Not-started"
             due="2023-10-15"
           />
-          <h3 className='text-2xl font-bold mb-4 mt-8'>Completed Goals</h3>
+          <h3 className='text-2xl font-bold mb-4 mt-8'>Weekly Goals</h3>
           <GoalsCard
             title="Goal 1"
             category="Personal"
             status="Completed"
             due="2023-10-15"
           />
-          <h3 className='text-2xl font-bold mb-4 mt-8'>Overdue Goals</h3>
+          <h3 className='text-2xl font-bold mb-4 mt-8'>Daily Goals</h3>
           <GoalsCard
             title="Goal 1"
             category="Personal"

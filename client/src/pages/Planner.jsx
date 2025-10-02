@@ -19,7 +19,7 @@ const Planner = () => {
             <select name='Select a Timeline' className='border-2 border-gray-300 p-2 rounded-lg mt-1 flex bg-white'>
               <option value='select' selected>Select a timeline</option>
               <option value='daily'>Daily</option>
-              <option value='sprint'>Sprint</option>
+              <option value='weekly'>Weekly</option>
               <option value='month'>Month</option>
               <option value='quarter'>Quarterly</option>
             </select>
