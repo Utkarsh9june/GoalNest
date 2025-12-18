@@ -20,11 +20,18 @@ import {
 } from "recharts";
 import Planner from "./Planner";
 import Goals from "./Goals";
-import Study from "../assets/Study.png";
-import SuccessImage from "../assets/SuccessImage.png";
+import Study from "/Study.png";
+import SuccessImage from "/SuccessImage.png";
 import InspirationCard from "../components/InspirationCard";
 
 const Dashboard = () => {
+  const scrollToSection = (id) => {
+    const section = document.getElementById(id);
+    if(section) {
+      section.scrollIntoView({behavior: "smooth"});
+    }
+  }
+
   const [timeline, setTimeline] = useState("daily");
   const progressData = {
     daily: [
@@ -71,7 +78,7 @@ const Dashboard = () => {
           statusicon={SiTicktick}
           statusText="Completed"
           statusColor="#22c55e"
-          onViewDetails={() => alert("View Details Clicked")}
+          onViewDetails={() => scrollToSection("quarterly")}
         />
         <ProgressCard
           icon={IoBookOutline}
@@ -82,7 +89,7 @@ const Dashboard = () => {
           statusicon={GrInProgress}
           statusText="In Progress"
           statusColor="#d4c706"
-          onViewDetails={() => alert("View Details Clicked")}
+          onViewDetails={() => scrollToSection("monthly")}
         />
         <ProgressCard
           icon={FaRegCalendarAlt}
@@ -93,7 +100,7 @@ const Dashboard = () => {
           statusicon={LuTimer}
           statusText="Overdue"
           statusColor="#ff0000"
-          onViewDetails={() => alert("View Details Clicked")}
+          onViewDetails={() => scrollToSection("weekly")}
         />
         <ProgressCard
           icon={FaListCheck}
@@ -104,7 +111,7 @@ const Dashboard = () => {
           statusicon={SiTicktick}
           statusText="Completed"
           statusColor="#22c55e"
-          onViewDetails={() => alert("View Details Clicked")}
+          onViewDetails={() => scrollToSection("daily")}
         />
       </div>
 
