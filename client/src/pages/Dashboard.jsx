@@ -68,7 +68,7 @@ const Dashboard = () => {
       <p className="mt-4 text-lg">Here's your personalized overview.</p>
 
       {/* Progress Cards Section */}
-      <div className="grid grid-cols-2 mt-3 w-full gap-8">
+      {/* <div className="grid grid-cols-2 mt-3 w-full gap-8">
         <ProgressCard
           icon={FaBullseye}
           title="Quarterly Goals"
@@ -113,7 +113,7 @@ const Dashboard = () => {
           statusColor="#22c55e"
           onViewDetails={() => scrollToSection("daily")}
         />
-      </div>
+      </div> */}
 
       {/* Quick Productivity Stats Section */}
       <div className="bg-white p-6 rounded-lg shadow-lg border mt-10">
@@ -254,7 +254,7 @@ const Dashboard = () => {
       </div>
 
       {/* Progress Graph section */}
-      <div className="bg-white p-6 rounded-lg shadow-lg border mt-10">
+      {/* <div className="bg-white p-6 rounded-lg shadow-lg border mt-10">
         <h2 className="text-2xl font-bold mb-4">Past Progress</h2>
         <div className="flex gap-4 mb-4 flex justify-end">
           {["daily", "Weekly", "monthly", "quarterly"].map((t) => (
@@ -288,7 +288,8 @@ const Dashboard = () => {
             />
           </LineChart>
         </ResponsiveContainer>
-      </div>
+      </div> */}
+      
       <InspirationCard
         title="Plan Your Ascend"
         quote="Define your aspiration, break them into manageable steps, and track your journey to success. Every great achievement start with a clear plan.."

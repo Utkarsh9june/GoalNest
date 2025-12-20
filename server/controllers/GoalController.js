@@ -65,3 +65,24 @@ export const changeGoalStatus = async (req, res) => {
     res.status(500).json({message: "Server Error"});
   }
 }
+
+export const deleteGoal = async (req, res) => {
+  try{
+    const {goalId} = req.params;
+
+    if(!goalId) {
+      return res.status(400).json({message: "Goal ID required"});
+    }
+
+    const deletedGoal = await Goal.findByIdAndDelete(goalId);
+
+    if(!deletedGoal) {
+      return res.status(404).json({message: "Goal not found!"});
+    }
+
+    res.status(200).json({success: true, message: "Goal Deleted Successfully"});
+  } catch (err){
+    console.error("Delete Goal Error: ", err);
+    res.status(500).json({message: "Server error"});
+  }
+}

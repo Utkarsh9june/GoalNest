@@ -2,7 +2,6 @@ import React, { useState, useRef, useEffect } from "react";
 import { SlOptionsVertical } from "react-icons/sl";
 import { FaRegCalendarAlt, FaChevronRight } from "react-icons/fa";
 import api from "../utils/axios";
-import { API_PATHS } from "../utils/apiPaths";
 
 const STATUS_OPTIONS = ["Not-Started", "In-Progress", "Completed", "Overdue"];
 
@@ -40,11 +39,22 @@ const GoalsCard = ({ goalId, title, description, category, status, due }) => {
 
   const updateGoalStatus = async (newStatus) => {
     try {
-      const res = await api.patch(`/goals/${goalId}/changeStatus`, {status: newStatus}, {
+      await api.patch(`/goals/${goalId}/changeStatus`, {status: newStatus}, {
       withCredentials: true
     });
     } catch(err) {
       console.error("Failed to Update Status", err);
+    }
+  }
+
+  const deleteGoal = async () => {
+    try{
+      await api.delete(`/goals/${goalId}/deleteGoal`, {
+        withCredentials: true
+      });
+      window.location.reload();
+    } catch(err) {
+      console.error("Failed to delete goal", err);
     }
   }
 
@@ -118,7 +128,7 @@ const GoalsCard = ({ goalId, title, description, category, status, due }) => {
           <div
             className="px-3 py-2 hover:bg-red-100 text-red-600 cursor-pointer"
             onClick={() => {
-              console.log("Delete clicked");
+              deleteGoal();
               setMenuOpen(false);
             }}
           >
