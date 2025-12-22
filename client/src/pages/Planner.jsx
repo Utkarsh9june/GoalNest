@@ -29,7 +29,6 @@ const Planner = () => {
     setMessage("");
 
     try {
-      console.log(api);
       const res = await api.post(API_PATHS.GOAL.ADDGOAL, {
         title,
         description,
@@ -41,7 +40,6 @@ const Planner = () => {
       });
 
       setMessage("Goal added Successfully");
-      console.log(res.data);
 
       clearForm();
       Navigate("/");

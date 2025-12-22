@@ -24,4 +24,4 @@ app.get('/', (req, res) => {
 app.use('/goals', goalRoutes);
 app.use('/auth', authRoutes);
 
-app.listen(process.env.PORT, () => console.log("Server is running on PORT 8000"));
+app.listen(process.env.PORT, () => console.log("Server is running on PORT " + process.env.PORT ));

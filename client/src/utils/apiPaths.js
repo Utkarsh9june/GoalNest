@@ -9,5 +9,7 @@ export const API_PATHS = {
   GOAL: {
     GETGOALS: "/goals/",
     ADDGOAL: "/goals/addGoal",
+    GETSTATS: "/goals/stats",
+    GETTASKS: "/goals/tasks",
   },
 }

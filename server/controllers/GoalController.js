@@ -29,7 +29,7 @@ export const addGoal = async (req, res) => {
 };
 
 export const getGoals = async (req,res) => {
-  try {  
+  try{  
     const goals = await Goal.find({user: req.user._id}).sort({createdAt: -1});
     res.status(200).json(goals);
   } catch(err) {
@@ -37,6 +37,58 @@ export const getGoals = async (req,res) => {
     res.status(500).json({message: "Server Error"});
   }
 };
+
+export const getStats = async (req, res) => {
+  try{    
+    const nextWeek = new Date();
+    nextWeek.setDate(nextWeek.getDate() + 7);
+    const goals = await Goal.find({user: req.user._id});
+
+    const activeGoals = goals.filter(goal => goal.status === 'In-Progress').length;
+    
+    const deadlineDriven = goals.filter(goal => {
+      const deadline = new Date(goal.timeline);
+      return deadline >= new Date() && deadline <= nextWeek;
+    }).length;
+
+    const highImpact = goals.filter(goal => goal.priority === 'high').length;
+
+    const goalsCompleted = goals.filter(goal => goal.status === 'Completed').length;
+
+    const notStarted = goals.filter(goal => goal.status === 'Not-Started').length;
+
+    res.status(200).json({
+      activeGoals,
+      deadlineDriven,
+      highImpact,
+      goalsCompleted,
+      notStarted
+    });
+
+  } catch(err) {
+    console.error("Get Stats Error: ", err);
+    res.status(500).json({message: "Server Error"});
+  }
+}
+
+export const getTasks = async (req, res) => {
+  try{
+    const goals = await Goal.find({user: req.user._id}).sort({createdAt: -1});
+    const nextWeek = new Date();
+    nextWeek.setDate(nextWeek.getDate() + 7);
+
+    const tasks = goals.filter(goal => {
+      const deadline = new Date(goal.timeline);
+      return goal.priority === 'high' && deadline >= new Date() && deadline <= nextWeek && (goal.status === 'In-Progress' || goal.status === 'Not-Started');
+    });
+
+    res.status(200).json(tasks);
+
+  } catch(err) {
+    console.error("Get Tasks Error: ", err);
+    res.status(500).json({message: "Server Error"});
+  }
+}
 
 export const changeGoalStatus = async (req, res) => {
   try{
