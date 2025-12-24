@@ -29,7 +29,7 @@ export const register = async (req, res) => {
       httpOnly: true,
       secure: false,
       sameSite: "lax",
-      maxAge: 1000 * 60 * 60,
+      maxAge: 1000 * 60 * 60 * 24,
     });
 
     res.status(201).json({
@@ -63,7 +63,7 @@ export const login = async (req, res) => {
       httpOnly: true,
       secure: false,
       sameSite: "lax",
-      maxAge: 1000 * 60 * 60,
+      maxAge: 1000 * 60 * 60 * 24,
     });
 
     return res.json({

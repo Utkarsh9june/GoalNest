@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Planner from "./Planner";
 import Goals from "./Goals";
 import Study from "/Study.png";

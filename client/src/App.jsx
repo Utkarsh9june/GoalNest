@@ -5,6 +5,7 @@ import Dashboard from './pages/Dashboard';
 import Profile from './pages/Profile';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
+import ProtectedRoute from './hooks/ProtectedRoute';
 
 const App = () => {
   const location = useLocation();
@@ -17,7 +18,7 @@ const App = () => {
       )}
         <main className='flex-1 overflow-auto p-4 m-5'>
           <Routes>
-            <Route path="/" element={<Dashboard />} />
+            <Route path="/" element={<ProtectedRoute> <Dashboard /> </ProtectedRoute>} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/signup" element={<Signup />} />
             <Route path='/login' element={<Login />} />
