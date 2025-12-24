@@ -23,7 +23,7 @@ const Navbar = () => {
         <span className="text-blue-900">Goal</span>Nest
       </h1>
       <div className="flex items-center gap-4 ">
-      <button className="bg-gray-700 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-800 transition-colors duration-200 shadow-md" onClick={logout}>
+      <button className="bg-red-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-800 transition-colors duration-200 shadow-md" onClick={logout}>
         Logout
       </button>
       </div>
